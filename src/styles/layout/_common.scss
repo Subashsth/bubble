@@ -1,0 +1,138 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the common layout of the site
+// -----------------------------------------------------------------------------
+html {
+  overflow: hidden;
+}
+body {
+  background-color: $body-bg;
+}
+
+.holder {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+// skip links
+.accessibility {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+}
+
+.bubble {
+  height: calc(100vh - 116px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+  // overflow: hidden;
+  border-radius: 20px;
+  padding: 20px;
+  gap: 5px;
+
+  @include media('>=tablet') {
+    height: calc(100vh - 165px);
+    gap: 15px;
+    padding: 40px;
+    border-radius: 50px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background: $white;
+    color: $white;
+    border-radius: 50%;
+    letter-spacing: 1px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid $white;
+    backdrop-filter: blur(2px);
+    position: relative;
+    cursor: pointer;
+    // @include transition(background);
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 0.8rem;
+
+    &:nth-child(n + 61) {
+      display: none;
+
+      @include media('>=tablet') {
+        display: flex;
+      }
+    }
+
+    @include media('>=tablet') {
+      font-size: 1.2rem;
+      height: 3.2rem;
+      width: 3.2rem;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      background: $white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px $white;
+      width: 3px;
+      height: 3px;
+      top: 10px;
+      left: 9px;
+
+      @include media('>=tablet') {
+        top: 10px;
+        left: 12px;
+        width: 4px;
+        height: 4px;
+      }
+    }
+  }
+}
+
+.congrats {
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    color: $white;
+    // background-image: linear-gradient(0deg, #00e04b 0%, #d7f0dd 100%);
+    // -webkit-background-clip: text;
+    // background-clip: text;
+    // filter: drop-shadow(0 2px 2px rgba(0, 255, 26, 0.426));
+
+    @include media('>=desktop') {
+      font-size: 3rem;
+    }
+  }
+}
